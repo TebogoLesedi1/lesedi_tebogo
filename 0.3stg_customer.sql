@@ -1,4 +1,6 @@
-CREATE TABLE dbo.DimCustomer
+DROP TABLE IF EXISTS [stg].[dbo].[dim_customer];
+
+CREATE TABLE dbo.dim_customer
 (
     CustomerKey INT IDENTITY(1,1) PRIMARY KEY,
     [customer_first_name] VARCHAR(100),
@@ -11,7 +13,7 @@ CREATE TABLE dbo.DimCustomer
     [Customer_Since] DATE
 );
 
-INSERT INTO dbo.DimCustomer
+INSERT INTO dbo.dim_customer
 (
 [customer_first_name],
 [customer_last_name],
@@ -32,3 +34,5 @@ SELECT DISTINCT
 [customer_loyalty_tier],
 [customer_since]
 FROM [stg].[dbo].[1782578019743_BrightLearn_Raw_Data];
+
+select * from dim_customer
